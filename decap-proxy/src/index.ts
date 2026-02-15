@@ -110,7 +110,7 @@ export default {
         }
 
         // Prepare token data as JSON to safely embed in HTML
-        const tokenData = JSON.stringify({ 
+        const tokenDataJson = JSON.stringify({ 
           token: accessToken, 
           provider: 'github' 
         });
@@ -160,7 +160,7 @@ export default {
   </div>
   <script>
     (function() {
-      const tokenData = ${tokenData};
+      const tokenData = ${tokenDataJson};
       const targetOrigin = 'https://soundofsimone.no';
       
       function receiveMessage(message) {

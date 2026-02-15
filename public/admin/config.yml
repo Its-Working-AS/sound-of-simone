@@ -2,7 +2,10 @@ backend:
   name: github
   repo: Its-Working-AS/sound-of-simone
   branch: main
-  base_url: https://soundofsimone-oauth.thomas-allisson.workers.dev
+  base_url: https://decap.soundofsimone.no
+  auth_endpoint: auth
+
+site_url: https://soundofsimone.no
 
 media_folder: "public/images"
 public_folder: "/images"

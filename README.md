@@ -1,6 +1,16 @@
 # Astro + Decap CMS + Cloudflare Template
 
+> **✅ Status**: All Cloudflare setup tasks complete! Ready for deployment. See [DEPLOYMENT-QUICKSTART.md](DEPLOYMENT-QUICKSTART.md) for deployment guide.
+
 A starter template for building a static site with [Astro](https://astro.build) and managing its content with [Decap CMS](https://decapcms.org/), all deployed on [Cloudflare Pages](https://pages.cloudflare.com/). This setup includes a Cloudflare Worker acting as a custom GitHub OAuth proxy, allowing you to authenticate via GitHub without relying on Netlify Identity or Git Gateway. Additionally, you can use [Cloudflare Zero Trust (Access)](https://www.cloudflare.com/products/zero-trust/access/) to add an extra layer of security to your `/admin` page.
+
+## 📚 Documentation Quick Links
+
+- **🚀 [Deployment Quick Start](DEPLOYMENT-QUICKSTART.md)** - Deploy in ~35 minutes (Step-by-step guide)
+- **✅ [Cloudflare Setup Complete](CLOUDFLARE-SETUP-COMPLETE.md)** - Full status of completed tasks
+- **📖 [Setup History](SETUP-COMPLETE.md)** - What was configured initially
+- **🔧 [Worker Setup](decap-proxy/README.md)** - OAuth proxy configuration
+- **🌐 [DNS Setup Guide](decap-proxy/DNS-SETUP.md)** - Custom domain configuration
 
 ## Features
 

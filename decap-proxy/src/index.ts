@@ -109,6 +109,35 @@ export default {
           });
         }
 
+        // Validate the token by making a test API call to GitHub
+        try {
+          const userResponse = await fetch('https://api.github.com/user', {
+            headers: {
+              'Authorization': `Bearer ${accessToken}`,
+              'Accept': 'application/vnd.github.v3+json',
+              'User-Agent': 'Decap-OAuth-Proxy',
+            },
+          });
+
+          if (!userResponse.ok) {
+            console.error('Token validation failed:', userResponse.status, userResponse.statusText);
+            return new Response(`Token validation failed: ${userResponse.statusText}`, { 
+              status: 401,
+              headers: corsHeaders 
+            });
+          }
+
+          // Token is valid if we can successfully fetch user info
+          const userData = await userResponse.json();
+          console.log('Token validated successfully for user:', (userData as any).login);
+        } catch (validationError) {
+          console.error('Error validating token:', validationError);
+          return new Response('Failed to validate access token', { 
+            status: 500,
+            headers: corsHeaders 
+          });
+        }
+
         // Prepare token data as JSON to safely embed in HTML
         const tokenDataJson = JSON.stringify({ 
           token: accessToken, 

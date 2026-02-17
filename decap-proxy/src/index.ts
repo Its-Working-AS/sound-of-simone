@@ -3,6 +3,13 @@ interface Env {
   OAUTH_CLIENT_SECRET: string;
 }
 
+interface GitHubUser {
+  login: string;
+  id: number;
+  avatar_url: string;
+  name: string;
+}
+
 // Helper function to generate random hex string using Web Crypto API
 function generateRandomHex(length: number): string {
   const bytes = new Uint8Array(length);
@@ -128,8 +135,8 @@ export default {
           }
 
           // Token is valid if we can successfully fetch user info
-          const userData = await userResponse.json();
-          console.log('Token validated successfully for user:', (userData as any).login);
+          const userData = await userResponse.json() as GitHubUser;
+          console.log('Token validated successfully for user:', userData.login);
         } catch (validationError) {
           console.error('Error validating token:', validationError);
           return new Response('Failed to validate access token', { 

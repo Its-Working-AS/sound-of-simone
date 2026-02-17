@@ -1,19 +1,27 @@
 # Astro + Decap CMS + Cloudflare Template
 
-> **✅ Status**: Everything ready for deployment! Code complete with automated workflows.  
-> **🚀 DEPLOY NOW**: See [DEPLOYMENT-INSTRUCTIONS.md](DEPLOYMENT-INSTRUCTIONS.md) for complete deployment guide!  
-> **⚡ Quick Reference**: [DEPLOY.md](DEPLOY.md) | [WHATS-READY.md](WHATS-READY.md)
+> **🚀 READY TO DEPLOY!** All code complete with automated workflows.  
+> **👉 START HERE: [DEPLOYMENT-READY.md](DEPLOYMENT-READY.md)** - Everything you need to deploy!  
+> **⚡ Quick Links:** [Setup Guide](DEPLOYMENT-INSTRUCTIONS.md) | [Trigger Deploy](HOW-TO-TRIGGER-DEPLOYMENT.md)
 
 A starter template for building a static site with [Astro](https://astro.build) and managing its content with [Decap CMS](https://decapcms.org/), all deployed on [Cloudflare Pages](https://pages.cloudflare.com/). This setup includes a Cloudflare Worker acting as a custom GitHub OAuth proxy, allowing you to authenticate via GitHub without relying on Netlify Identity or Git Gateway. Additionally, you can use [Cloudflare Zero Trust (Access)](https://www.cloudflare.com/products/zero-trust/access/) to add an extra layer of security to your `/admin` page.
 
-## 🚀 Deployment Resources (NEW!)
+## 🚀 Deployment Resources
 
-- **📖 [DEPLOYMENT INSTRUCTIONS](DEPLOYMENT-INSTRUCTIONS.md)** - **START HERE!** Complete deployment guide
-- **🎯 [What's Ready](WHATS-READY.md)** - Complete overview of what's been set up
-- **⚡ [Quick Deploy Guide](DEPLOY.md)** - Fast reference for deployment
-- **📋 [Pre-Deployment Checklist](PRE-DEPLOYMENT-CHECKLIST.md)** - Prerequisites checklist
-- **📊 [Deployment Status](DEPLOYMENT-STATUS.md)** - Status tracking and architecture
-- **🔧 [Verification Script](scripts/verify-deployment.sh)** - Test your deployment
+### 📖 Start Here!
+- **[DEPLOYMENT-READY.md](DEPLOYMENT-READY.md)** - **⭐ START HERE!** Quick overview and links to everything
+
+### 📝 Deployment Guides
+- **[DEPLOYMENT-INSTRUCTIONS.md](DEPLOYMENT-INSTRUCTIONS.md)** - Complete deployment setup guide (~40 min)
+- **[HOW-TO-TRIGGER-DEPLOYMENT.md](HOW-TO-TRIGGER-DEPLOYMENT.md)** - How to deploy after initial setup
+- **[DEPLOYMENT-QUICKSTART.md](DEPLOYMENT-QUICKSTART.md)** - Alternative step-by-step guide
+
+### 📋 Reference Documentation
+- **[WHATS-READY.md](WHATS-READY.md)** - Complete overview of what's been set up
+- **[PRE-DEPLOYMENT-CHECKLIST.md](PRE-DEPLOYMENT-CHECKLIST.md)** - Prerequisites checklist
+- **[DEPLOYMENT-STATUS.md](DEPLOYMENT-STATUS.md)** - Status tracking and architecture
+- **[DEPLOY.md](DEPLOY.md)** - Quick reference for deployment
+- **[Verification Script](scripts/verify-deployment.sh)** - Test your deployment
 
 ## 📚 Detailed Documentation
 

@@ -14,9 +14,9 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - label: "Homepage"
-        name: "home"
-        file: "src/pages/index.md"
+      - label: "About Page"
+        name: "about"
+        file: "src/pages/about.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }

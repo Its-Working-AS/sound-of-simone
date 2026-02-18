@@ -8,18 +8,22 @@
 :root {
   /* === Color Palette === */
   
-  /* Primary Colors */
+  /* Primary Colors - Brand Burgundy */
+  --color-burgundy: #411e25;
+  --color-primary: #411e25;
+  --color-white: #ffffff;
+  
+  /* Legacy primary colors (kept for compatibility) */
   --color-primary-50: #f0f9ff;
   --color-primary-100: #e0f2fe;
   --color-primary-200: #bae6fd;
   --color-primary-300: #7dd3fc;
   --color-primary-400: #38bdf8;
   --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
+  --color-primary-600: #411e25;
   --color-primary-700: #0369a1;
   --color-primary-800: #075985;
   --color-primary-900: #0c4a6e;
-  --color-primary: var(--color-primary-600);
   
   /* Neutral Colors */
   --color-neutral-50: #fafafa;
@@ -59,8 +63,9 @@
   /* === Typography === */
   
   /* Font Families */
-  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-base: 'Horizon', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Horizon', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-caps: 'Six Caps', sans-serif;
   --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
   
   /* Font Sizes */

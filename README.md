@@ -1,35 +1,40 @@
 # Astro + Decap CMS + Cloudflare Template
 
 > **🚀 READY TO DEPLOY!** All code complete with automated workflows.  
-> **👉 START HERE: [DEPLOYMENT-READY.md](DEPLOYMENT-READY.md)** - Everything you need to deploy!  
-> **⚡ Quick Links:** [Setup Guide](DEPLOYMENT-INSTRUCTIONS.md) | [Trigger Deploy](HOW-TO-TRIGGER-DEPLOYMENT.md)
+> **👉 START HERE: [DEPLOYMENT-READY.md](docs/deployment/DEPLOYMENT-READY.md)** - Everything you need to deploy!  
+> **⚡ Quick Links:** [Setup Guide](docs/deployment/DEPLOYMENT-INSTRUCTIONS.md) | [Trigger Deploy](docs/deployment/HOW-TO-TRIGGER-DEPLOYMENT.md)
 
 A starter template for building a static site with [Astro](https://astro.build) and managing its content with [Decap CMS](https://decapcms.org/), all deployed on [Cloudflare Pages](https://pages.cloudflare.com/). This setup includes a Cloudflare Worker acting as a custom GitHub OAuth proxy, allowing you to authenticate via GitHub without relying on Netlify Identity or Git Gateway. Additionally, you can use [Cloudflare Zero Trust (Access)](https://www.cloudflare.com/products/zero-trust/access/) to add an extra layer of security to your `/admin` page.
 
 ## 🚀 Deployment Resources
 
 ### 📖 Start Here!
-- **[DEPLOYMENT-READY.md](DEPLOYMENT-READY.md)** - **⭐ START HERE!** Quick overview and links to everything
+- **[DEPLOYMENT-READY.md](docs/deployment/DEPLOYMENT-READY.md)** - **⭐ START HERE!** Quick overview and links to everything
 
 ### 📝 Deployment Guides
-- **[DEPLOYMENT-INSTRUCTIONS.md](DEPLOYMENT-INSTRUCTIONS.md)** - Complete deployment setup guide (~40 min)
-- **[HOW-TO-TRIGGER-DEPLOYMENT.md](HOW-TO-TRIGGER-DEPLOYMENT.md)** - How to deploy after initial setup
-- **[DEPLOYMENT-QUICKSTART.md](DEPLOYMENT-QUICKSTART.md)** - Alternative step-by-step guide
+- **[DEPLOYMENT-INSTRUCTIONS.md](docs/deployment/DEPLOYMENT-INSTRUCTIONS.md)** - Complete deployment setup guide (~40 min)
+- **[HOW-TO-TRIGGER-DEPLOYMENT.md](docs/deployment/HOW-TO-TRIGGER-DEPLOYMENT.md)** - How to deploy after initial setup
+- **[DEPLOYMENT-QUICKSTART.md](docs/deployment/DEPLOYMENT-QUICKSTART.md)** - Alternative step-by-step guide
 
 ### 📋 Reference Documentation
-- **[WHATS-READY.md](WHATS-READY.md)** - Complete overview of what's been set up
-- **[PRE-DEPLOYMENT-CHECKLIST.md](PRE-DEPLOYMENT-CHECKLIST.md)** - Prerequisites checklist
-- **[DEPLOYMENT-STATUS.md](DEPLOYMENT-STATUS.md)** - Status tracking and architecture
-- **[DEPLOY.md](DEPLOY.md)** - Quick reference for deployment
+- **[WHATS-READY.md](docs/WHATS-READY.md)** - Complete overview of what's been set up
+- **[PRE-DEPLOYMENT-CHECKLIST.md](docs/deployment/PRE-DEPLOYMENT-CHECKLIST.md)** - Prerequisites checklist
+- **[DEPLOYMENT-STATUS.md](docs/deployment/DEPLOYMENT-STATUS.md)** - Status tracking and architecture
+- **[DEPLOY.md](docs/deployment/DEPLOY.md)** - Quick reference for deployment
 - **[Verification Script](scripts/verify-deployment.sh)** - Test your deployment
 
 ## 📚 Detailed Documentation
 
-- **🚀 [Deployment Quick Start](DEPLOYMENT-QUICKSTART.md)** - Deploy in ~35 minutes (Step-by-step guide)
-- **✅ [Cloudflare Setup Complete](CLOUDFLARE-SETUP-COMPLETE.md)** - Full status of completed tasks
-- **📖 [Setup History](SETUP-COMPLETE.md)** - What was configured initially
+- **🚀 [Deployment Quick Start](docs/deployment/DEPLOYMENT-QUICKSTART.md)** - Deploy in ~35 minutes (Step-by-step guide)
+- **✅ [Cloudflare Setup Complete](docs/deployment/CLOUDFLARE-SETUP-COMPLETE.md)** - Full status of completed tasks
+- **📖 [Setup History](docs/SETUP-COMPLETE.md)** - What was configured initially
 - **🔧 [Worker Setup](decap-proxy/README.md)** - OAuth proxy configuration
 - **🌐 [DNS Setup Guide](decap-proxy/DNS-SETUP.md)** - Custom domain configuration
+
+## 🎨 Design System
+
+- **[Design System Setup](docs/design/DESIGN-SYSTEM-SETUP.md)** - Complete design system documentation
+- **[Design Quick Reference](docs/design/DESIGN-QUICK-REFERENCE.md)** - Quick reference for design tokens and components
 
 ## Features
 

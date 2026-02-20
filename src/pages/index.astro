@@ -1,25 +1,143 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/SimpleCard.astro';
-import CTA from '../components/CTA.astro';
+import Logo from '../components/ui/Logo.astro';
 ---
 
-<Layout title="Sound of Simone">
-  <Hero />
+<Layout title="Sound of Simone | Kommer snart">
+  <main class="landing">
+    <div class="grain" aria-hidden="true"></div>
 
-  <Section
-    id="tjenester"
-    title="Våre tjenester"
-    subtitle="Skreddersydd behandling tilpasset dine behov"
-  >
-    <div class="grid-3">
-      <Card title="Hormonell balanse" text="Individuell vurdering og behandling." />
-      <Card title="Fertilitet" text="Helhetlig støtte gjennom hele prosessen." />
-      <Card title="Livsstil & helse" text="Forebyggende og styrkende tiltak." />
-    </div>
-  </Section>
+    <section class="content" aria-label="Kommer snart">
+      <div class="logo-shell">
+        <Logo size="xl" color="#411e25" />
+      </div>
 
-  <CTA />
+      <div class="wave-wrap" role="img" aria-label="Lydvisualisering">
+        <svg viewBox="0 0 500 500" class="wave-svg" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="250" cy="250" r="200" stroke="#411e25" stroke-width="2" fill="none"/>
+          <g stroke="#411e25" stroke-width="12" stroke-linecap="round" class="wave-bars">
+            <line x1="150" y1="240" x2="150" y2="260"/>
+            <line x1="180" y1="210" x2="180" y2="290"/>
+            <line x1="210" y1="180" x2="210" y2="320"/>
+            <line x1="240" y1="150" x2="240" y2="350"/>
+            <line x1="270" y1="170" x2="270" y2="330"/>
+            <line x1="300" y1="200" x2="300" y2="300"/>
+            <line x1="330" y1="220" x2="330" y2="280"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="statement">NOE SPENNENDE ER PÅ VEI I DIN RETNING</p>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  :global(body) {
+    font-family: 'Montserrat', sans-serif;
+    background: #000;
+  }
+
+  .landing {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2rem, 5vw, 4rem) 1.25rem;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 50% 10%, rgba(65, 30, 37, 0.35), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(65, 30, 37, 0.2), transparent 45%),
+      #000;
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.08;
+    background-image: radial-gradient(#fff 0.5px, transparent 0.5px);
+    background-size: 3px 3px;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+
+  .content {
+    width: min(720px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(2rem, 4.5vh, 3rem);
+  }
+
+  .logo-shell {
+    width: min(820px, 96vw);
+    padding: clamp(1rem, 3vw, 1.8rem);
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0 12px 28px rgba(65, 30, 37, 0.4));
+  }
+
+  .wave-wrap {
+    width: min(70vmin, 360px);
+    filter: drop-shadow(0 0 24px rgba(65, 30, 37, 0.3));
+  }
+
+  .wave-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .wave-bars line {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 1100ms ease-in-out infinite;
+  }
+
+  .wave-bars line:nth-child(1) { animation-delay: 0.08s; }
+  .wave-bars line:nth-child(2) { animation-delay: 0.14s; }
+  .wave-bars line:nth-child(3) { animation-delay: 0.02s; }
+  .wave-bars line:nth-child(4) { animation-delay: 0.12s; }
+  .wave-bars line:nth-child(5) { animation-delay: 0.06s; }
+  .wave-bars line:nth-child(6) { animation-delay: 0.16s; }
+  .wave-bars line:nth-child(7) { animation-delay: 0.1s; }
+
+  .statement {
+    font-size: clamp(0.82rem, 1.9vw, 1.02rem);
+    letter-spacing: 0.4em;
+    color: #d7c7cb;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.8rem 1.2rem 0.8rem 1.6rem;
+    border: 1px solid rgba(65, 30, 37, 0.7);
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(65, 30, 37, 0.2), rgba(65, 30, 37, 0.04));
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 0 28px rgba(65, 30, 37, 0.35);
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scaleY(0.72); opacity: 0.8; }
+    50% { transform: scaleY(1.26); opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    .logo-shell {
+      padding: 0.5rem;
+    }
+
+    .statement {
+      letter-spacing: 0.26em;
+      padding: 0.7rem 1rem 0.7rem 1.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-bars line {
+      animation: none;
+    }
+  }
+</style>

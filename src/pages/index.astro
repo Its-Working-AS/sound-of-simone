@@ -1,25 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/SimpleCard.astro';
-import CTA from '../components/CTA.astro';
+import Logo from '../components/ui/Logo.astro';
 ---
 
 <Layout title="Sound of Simone">
-  <Hero />
-
-  <Section
-    id="tjenester"
-    title="Våre tjenester"
-    subtitle="Skreddersydd behandling tilpasset dine behov"
-  >
-    <div class="grid-3">
-      <Card title="Hormonell balanse" text="Individuell vurdering og behandling." />
-      <Card title="Fertilitet" text="Helhetlig støtte gjennom hele prosessen." />
-      <Card title="Livsstil & helse" text="Forebyggende og styrkende tiltak." />
-    </div>
-  </Section>
-
-  <CTA />
+  <main class="coming-soon">
+    <Logo size="xl" color="#ffffff" />
+    <p class="coming-soon__text">Coming soon</p>
+  </main>
 </Layout>
+
+<style>
+  .coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    gap: var(--space-8);
+  }
+
+  .coming-soon__text {
+    color: var(--color-white);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+</style>

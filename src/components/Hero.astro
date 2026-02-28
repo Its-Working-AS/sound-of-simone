@@ -4,10 +4,9 @@ import { homepageContent } from '../config/homepage';
 ---
 
 <section class="hero" aria-labelledby="hero-title" style={`--homepage-brand: ${BRAND_COLOR};`}>
-  <div class="hero-bg" aria-hidden="true"></div>
-
-  <div class="container hero-layout">
-    <figure class="hero-visual" data-reveal style="--reveal-delay: 60ms;">
+  <div class="hero-media">
+    <picture>
+      <source srcset={homepageContent.hero.image.webpSrc} type="image/webp" />
       <img
         src={homepageContent.hero.image.src}
         alt={homepageContent.hero.image.alt}
@@ -15,35 +14,27 @@ import { homepageContent } from '../config/homepage';
         decoding="async"
         fetchpriority="high"
       />
-      {homepageContent.hero.image.note && <figcaption>{homepageContent.hero.image.note}</figcaption>}
-    </figure>
+    </picture>
+  </div>
+  <div class="hero-bg" aria-hidden="true"></div>
 
-    <div class="hero-content">
+  <div class="hero-layout">
+    <div class="hero-content" data-reveal style="--reveal-delay: 90ms;">
       {DEV_MODE && <p class="hero-preview" data-reveal style="--reveal-delay: 20ms;">Forhåndsvisning</p>}
-      <p class="hero-kicker" data-reveal style="--reveal-delay: 90ms;">{homepageContent.hero.kicker}</p>
-      <h1 id="hero-title" data-reveal style="--reveal-delay: 150ms;">
+      <p class="hero-kicker" data-reveal style="--reveal-delay: 120ms;">{homepageContent.hero.kicker}</p>
+      <h1 id="hero-title" data-reveal style="--reveal-delay: 170ms;">
         {homepageContent.hero.title}
       </h1>
       <p class="hero-lead" data-reveal style="--reveal-delay: 220ms;">
         {homepageContent.hero.lead}
       </p>
 
-      <div class="hero-actions" data-reveal style="--reveal-delay: 280ms;">
+      <div class="hero-actions" data-reveal style="--reveal-delay: 260ms;">
         <a class="hero-btn hero-btn--primary" href={BOOKING_URL}>
           {homepageContent.hero.primaryCtaLabel}
         </a>
         <a class="hero-btn hero-btn--light" href="#kontakt">{homepageContent.hero.secondaryCtaLabel}</a>
       </div>
-
-      <nav class="hero-chip-nav" aria-label="Fagomrader" data-reveal style="--reveal-delay: 340ms;">
-        {
-          homepageContent.hero.chips.map((chip) => (
-            <a class={chip.label === homepageContent.hero.primaryCtaLabel ? 'hero-chip hero-chip--cta' : 'hero-chip'} href={chip.href}>
-              {chip.label}
-            </a>
-          ))
-        }
-      </nav>
     </div>
   </div>
 </section>

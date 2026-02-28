@@ -4,8 +4,13 @@ import Hero from '../components/Hero.astro';
 import StickyBrandBar from '../components/StickyBrandBar.astro';
 import Section from '../components/Section.astro';
 import Card from '../components/SimpleCard.astro';
+import ProofStrip from '../components/ProofStrip.astro';
 import BookingSkeleton from '../components/BookingSkeleton.astro';
 import ContactInfo from '../components/ContactInfo.astro';
+import AboutSimone from '../components/AboutSimone.astro';
+import CTA from '../components/CTA.astro';
+import BottomPillMenu from '../components/BottomPillMenu.astro';
+import BottomMenuOverlay from '../components/BottomMenuOverlay.astro';
 ---
 
 <Layout title="Sound of Simone">
@@ -13,18 +18,19 @@ import ContactInfo from '../components/ContactInfo.astro';
 
   <main class="home-page" id="top">
     <Hero />
+    <ProofStrip />
     <BookingSkeleton />
     <ContactInfo />
 
     <Section
       id="tjenester"
-      title="Kompetanseomrader"
-      subtitle="Faglig forankret fysioterapi med tydelig retning og trygg oppfolging."
+      title="Tjenester"
+      subtitle="Klinisk oppfolging med tydelig vurdering, konkret plan og trygg gjennomforing."
     >
       <div class="grid-3">
-        <Card title="Underlivsplager" text="Grundig kartlegging og skreddersydd behandling i trygge rammer." />
-        <Card title="Vaginisme" text="Trinnvis oppfolging med respekt for tempo, kropp og livssituasjon." />
-        <Card title="Foredrag og fagformidling" text="Erfaringsbasert undervisning om kvinnehelse for fagmiljoer og arrangementer." />
+        <Card title="Underlivsplager" text="Systematisk kartlegging og fysioterapeutisk behandling tilpasset ditt behov." />
+        <Card title="Vaginisme" text="Trinnvis behandlingslop med fokus pa trygghet, funksjon og mestring." />
+        <Card title="Foredrag og fagformidling" text="Faglige foredrag om kvinnehelse for klinikker, seminarer og fagmiljoer." />
       </div>
     </Section>
 
@@ -32,18 +38,20 @@ import ContactInfo from '../components/ContactInfo.astro';
       <div class="container trust-grid">
         <article class="trust-item">
           <h3 data-reveal>Faglig tyngde</h3>
-          <p data-reveal>Lang erfaring fra kvinnehelse, pasientarbeid og klinisk vurdering.</p>
+          <p data-reveal>Klinisk arbeid og fagfokus innen kvinnehelse og relaterte funksjonsplager.</p>
         </article>
         <article class="trust-item">
           <h3 data-reveal>Tydelig kommunikasjon</h3>
-          <p data-reveal>Du far konkrete steg, realistiske forventninger og oppfolging som er lett a forsta.</p>
+          <p data-reveal>Du far konkrete steg, realistiske forventninger og en plan som er lett a folge.</p>
         </article>
         <article class="trust-item">
           <h3 data-reveal>Trygg prosess</h3>
-          <p data-reveal>Behandlingen tilpasses deg, med rom for sporsmal, justeringer og progresjon over tid.</p>
+          <p data-reveal>Oppfolgingen tilpasses deg med tydelige vurderinger underveis.</p>
         </article>
       </div>
     </section>
+
+    <AboutSimone />
 
     <section class="faq-teaser" id="faq" aria-labelledby="faq-tittel">
       <div class="container faq-layout">
@@ -51,25 +59,29 @@ import ContactInfo from '../components/ContactInfo.astro';
           <p class="faq-kicker" data-reveal>Vanlige spørsmål</p>
           <h2 id="faq-tittel" data-reveal>Praktisk informasjon for nye pasienter</h2>
           <p data-reveal>
-            Fullstendig FAQ publiseres sammen med ferdig bookingflyt. Her er de viktigste avklaringene
-            i denne versjonen.
+            Her finner du korte svar pa de vanligste sporsmalene om oppstart og booking.
           </p>
         </div>
         <div class="faq-list">
           <details class="faq-item">
             <summary>Trenger jeg henvisning?</summary>
-            <p>Dette avklares per tjeneste. Kontakt oss, sa veileder vi deg til riktig neste steg.</p>
+            <p>Dette avhenger av tjeneste og behov. Ta kontakt, sa avklarer vi riktig lop.</p>
           </details>
           <details class="faq-item">
-            <summary>Hvor lang er en konsultasjon?</summary>
-            <p>Varighet varierer etter behov. Endelig oversikt legges ut nar bookingmodulen er klar.</p>
+            <summary>Hvordan bestiller jeg time?</summary>
+            <p>I denne fasen bestiller du via e-post eller telefon. Physica kobles i neste fase.</p>
           </details>
           <details class="faq-item">
-            <summary>Kan jeg bestille oppfølgingstime med en gang?</summary>
-            <p>Ja. I V1 gar all bookingforesporsel via kontaktseksjonen, mens Physica-integrasjon bygges.</p>
+            <summary>Tilbyr dere faglige foredrag?</summary>
+            <p>Ja, vi vurderer foredragsforesporsler lopende. Send tema og behov via kontaktseksjonen.</p>
           </details>
         </div>
       </div>
     </section>
+
+    <CTA />
   </main>
+
+  <BottomPillMenu />
+  <BottomMenuOverlay />
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import { homepageContent } from '../config/homepage';
+import { BOOKING_URL } from '../config/site';
 ---
 
 <section class="booking-skeleton" id="booking" aria-labelledby="booking-title">
@@ -12,7 +13,7 @@ import { homepageContent } from '../config/homepage';
 
     <aside class="booking-panel" data-reveal style="--reveal-delay: 210ms;">
       <p class="booking-status">{homepageContent.booking.statusLabel}</p>
-      <a href="#kontakt" class="hero-btn hero-btn--primary">{homepageContent.booking.ctaLabel}</a>
+      <a href={BOOKING_URL} class="hero-btn hero-btn--primary">{homepageContent.booking.ctaLabel}</a>
     </aside>
   </div>
 </section>

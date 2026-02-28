@@ -1,0 +1,21 @@
+---
+import { BOOKING_URL } from '../config/site';
+import { homepageContent } from '../config/homepage';
+---
+
+<section class="about-simone" id="om-simone" aria-labelledby="om-simone-title">
+  <div class="container about-simone__layout">
+    <div class="about-simone__copy">
+      <p class="about-simone__kicker" data-reveal style="--reveal-delay: 70ms;">Om Simone</p>
+      <h2 id="om-simone-title" data-reveal style="--reveal-delay: 120ms;">{homepageContent.aboutSimone.title}</h2>
+      <p data-reveal style="--reveal-delay: 170ms;">{homepageContent.aboutSimone.body}</p>
+    </div>
+
+    <aside class="about-simone__panel" data-reveal style="--reveal-delay: 220ms;">
+      <ul>
+        {homepageContent.aboutSimone.bullets.map((bullet) => <li>{bullet}</li>)}
+      </ul>
+      <a href={BOOKING_URL} class="hero-btn hero-btn--primary">Bestill time</a>
+    </aside>
+  </div>
+</section>

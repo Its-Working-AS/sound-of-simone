@@ -1,22 +1,41 @@
-export interface HomepageChip {
+import { claimItems } from './claims';
+
+export interface HomepageNavItem {
   label: string;
   href: string;
 }
 
+export interface HomepageQuickNavItem extends HomepageNavItem {
+  kind: 'link' | 'menu';
+}
+
+export interface HomepageMenuGroup {
+  title: string;
+  items: HomepageNavItem[];
+}
+
+export interface HomepageProofItem {
+  label: string;
+  value: string;
+  verified: boolean;
+}
+
 export interface HomepageContent {
+  bottomQuickNav: HomepageQuickNavItem[];
+  menuGroups: HomepageMenuGroup[];
   hero: {
     kicker: string;
     title: string;
     lead: string;
     image: {
       src: string;
+      webpSrc: string;
       alt: string;
-      note?: string;
     };
-    chips: HomepageChip[];
     primaryCtaLabel: string;
     secondaryCtaLabel: string;
   };
+  proofItems: HomepageProofItem[];
   booking: {
     title: string;
     lead: string;
@@ -31,41 +50,99 @@ export interface HomepageContent {
     phoneLink: string;
     address?: string;
   };
+  aboutSimone: {
+    title: string;
+    body: string;
+    bullets: string[];
+  };
+  ctaBand: {
+    title: string;
+    primaryLabel: string;
+    secondaryLabel: string;
+  };
 }
 
 export const homepageContent: HomepageContent = {
+  bottomQuickNav: [
+    { label: 'Hjem', href: '#top', kind: 'link' },
+    { label: 'Om', href: '#om-simone', kind: 'link' },
+    { label: 'Tjenester', href: '#tjenester', kind: 'link' },
+    { label: 'Booking', href: '#booking', kind: 'link' },
+    { label: 'Kontakt', href: '#kontakt', kind: 'link' },
+  ],
+  menuGroups: [
+    {
+      title: 'Navigasjon',
+      items: [
+        { label: 'Hjem', href: '#top' },
+        { label: 'Om Simone', href: '#om-simone' },
+        { label: 'Tjenester', href: '#tjenester' },
+        { label: 'Booking', href: '#booking' },
+        { label: 'Kontakt', href: '#kontakt' },
+      ],
+    },
+    {
+      title: 'Tjenester',
+      items: [
+        { label: 'Underlivsplager', href: '#tjenester' },
+        { label: 'Vaginisme', href: '#tjenester' },
+        { label: 'Foredrag', href: '#tjenester' },
+      ],
+    },
+    {
+      title: 'Direkte',
+      items: [
+        { label: 'Bestill time', href: '#kontakt' },
+        { label: 'Kontakt', href: '#kontakt' },
+        { label: 'Hjem', href: '/' },
+      ],
+    },
+  ],
   hero: {
     kicker: 'Sound of Simone',
-    title: 'Fysioterapi med fordypning i kvinnehelse',
+    title: 'En ny standard for fysioterapi innen kvinnehelse',
     lead:
-      'Simone holder foredrag, veileder fagmiljoer og tilbyr helhetlig fysioterapi for deg som trenger trygg, tydelig oppfolging.',
+      'Trygg og tydelig oppfolging for underlivsplager, vaginisme, fertilitet og helhetlig kvinnehelse.',
     image: {
       src: '/images/simone-hero-placeholder.svg',
-      alt: 'Midlertidig plassholder for portrett av Simone',
-      note: 'Byttes til godkjent Simone-portrett i neste innholdsoppdatering.',
+      webpSrc: '/images/simone-hero-placeholder.webp',
+      alt: 'Portrett av Simone (midlertidig bilde inntil godkjent foto er levert)',
     },
-    chips: [
-      { label: 'Kvinnehelse', href: '#tjenester' },
-      { label: 'Underlivsplager', href: '#tjenester' },
-      { label: 'Vaginisme', href: '#tjenester' },
-      { label: 'Foredrag', href: '#tjenester' },
-      { label: 'Bestill time', href: '#booking' },
-    ],
     primaryCtaLabel: 'Bestill time',
     secondaryCtaLabel: 'Kontakt',
   },
+  proofItems: claimItems.map((item) => ({
+    label: item.label,
+    value: item.value,
+    verified: item.verified,
+  })),
   booking: {
-    title: 'Booking kommer i neste steg',
+    title: 'Bestill via kontakt i denne fasen',
     lead:
-      'Vi bygger na et tomt bookingskall. Integrasjon mot Physica legges inn i neste fase.',
-    statusLabel: 'Physica-integrasjon: kommer snart',
-    ctaLabel: 'Ga til kontakt',
+      'Physica-integrasjon planlegges i neste fase. Inntil da handteres bestilling raskt via kontaktseksjonen.',
+    statusLabel: 'Booking handteres manuelt via kontakt',
+    ctaLabel: 'Bestill time',
   },
   contact: {
     title: 'Kontakt Sound of Simone',
-    lead: 'Ta kontakt direkte pa e-post eller telefon inntil booking er fullt koblet opp.',
+    lead: 'Ta kontakt direkte pa e-post eller telefon for foresporsel, vurdering eller booking.',
     email: 'Hei@soundofsimone.no',
     phoneDisplay: '911 70 100',
     phoneLink: '91170100',
+  },
+  aboutSimone: {
+    title: 'Om Simone',
+    body:
+      'Simone kombinerer klinisk erfaring, fagformidling og strukturert pasientoppfolging med fokus pa kvinnehelse.',
+    bullets: [
+      'Faglig fokus pa underlivsplager og kvinnehelse',
+      'Erfaring med foredrag og undervisning for fagmiljoer',
+      'Trygg, tydelig og individuelt tilpasset behandlingsprosess',
+    ],
+  },
+  ctaBand: {
+    title: 'Klar for neste steg?',
+    primaryLabel: 'Bestill time',
+    secondaryLabel: 'Kontakt',
   },
 };

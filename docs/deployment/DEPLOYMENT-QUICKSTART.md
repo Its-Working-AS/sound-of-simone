@@ -189,8 +189,18 @@ Your site is now live with a fully functional CMS!
 If things feel slow, run verification with explicit timeouts:
 
 ```bash
+# Fast triage (skips response-body matching)
+CONNECT_TIMEOUT=5 MAX_TIME=15 RETRY_COUNT=2 ./scripts/verify-deployment.sh --quick
+
+# Full verification (includes health response body match)
 CONNECT_TIMEOUT=5 MAX_TIME=15 RETRY_COUNT=2 ./scripts/verify-deployment.sh
 ```
+
+The output now includes specific root-cause hints per check, for example:
+- `DNS_RESOLUTION_FAILED`
+- `TLS_HANDSHAKE_FAILED`
+- `AUTH_OR_ACCESS_DENIED`
+- `UPSTREAM_SERVER_ERROR`
 
 
 ## 📚 More Information

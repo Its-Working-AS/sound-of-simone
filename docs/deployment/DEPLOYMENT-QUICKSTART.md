@@ -180,6 +180,19 @@ Your site is now live with a fully functional CMS!
 
 ---
 
+### Expected timing (normal)
+
+- Local Astro build: usually seconds
+- Cloudflare Pages build/deploy: usually 2-3 minutes
+- DNS + SSL for new/updated custom domains: often 5+ minutes
+
+If things feel slow, run verification with explicit timeouts:
+
+```bash
+CONNECT_TIMEOUT=5 MAX_TIME=15 RETRY_COUNT=2 ./scripts/verify-deployment.sh
+```
+
+
 ## 📚 More Information
 
 - **Full documentation**: See `CLOUDFLARE-SETUP-COMPLETE.md`

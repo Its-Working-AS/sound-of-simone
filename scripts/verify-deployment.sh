@@ -3,7 +3,7 @@
 # Deployment Verification Script
 # This script checks if all required components are properly deployed
 
-set -e
+set -uo pipefail
 
 echo "🔍 Verifying deployment of Sound of Simone..."
 echo ""
@@ -17,19 +17,47 @@ NC='\033[0m' # No Color
 # Configuration
 MAIN_DOMAIN="${MAIN_DOMAIN:-soundofsimone.no}"
 PROXY_DOMAIN="${PROXY_DOMAIN:-decap.soundofsimone.no}"
+CONNECT_TIMEOUT="${CONNECT_TIMEOUT:-5}"
+MAX_TIME="${MAX_TIME:-15}"
+RETRY_COUNT="${RETRY_COUNT:-2}"
+RETRY_DELAY="${RETRY_DELAY:-1}"
+
+TOTAL_CHECKS=0
+FAILED_CHECKS=0
+
+start_ts="$(date +%s)"
+
+curl_common_args=(
+    -sS
+    --connect-timeout "$CONNECT_TIMEOUT"
+    --max-time "$MAX_TIME"
+    --retry "$RETRY_COUNT"
+    --retry-delay "$RETRY_DELAY"
+)
+
+record_result() {
+    local result=$1
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+
+    if [ "$result" -ne 0 ]; then
+        FAILED_CHECKS=$((FAILED_CHECKS + 1))
+    fi
+}
 
 # Function to check HTTP status
 check_url() {
     local url=$1
     local name=$2
-    
+
     echo -n "Checking $name ($url)... "
-    
-    if curl -s -f -I "$url" > /dev/null 2>&1; then
+
+    if curl "${curl_common_args[@]}" -f -I "$url" > /dev/null 2>&1; then
         echo -e "${GREEN}✓ OK${NC}"
+        record_result 0
         return 0
     else
         echo -e "${RED}✗ FAILED${NC}"
+        record_result 1
         return 1
     fi
 }
@@ -39,17 +67,37 @@ check_content() {
     local url=$1
     local expected=$2
     local name=$3
-    
+
     echo -n "Checking $name content... "
-    
-    if curl -s "$url" | grep -q "$expected"; then
+
+    if curl "${curl_common_args[@]}" "$url" | grep -q "$expected"; then
         echo -e "${GREEN}✓ OK${NC}"
+        record_result 0
         return 0
     else
         echo -e "${RED}✗ FAILED${NC}"
+        record_result 1
         return 1
     fi
 }
+
+check_dns() {
+    local domain=$1
+
+    echo -n "Resolving $domain... "
+    if dig +short "$domain" | grep -q .; then
+        echo -e "${GREEN}✓ OK${NC}"
+        record_result 0
+        return 0
+    else
+        echo -e "${RED}✗ FAILED${NC}"
+        record_result 1
+        return 1
+    fi
+}
+
+echo "⏱️ Timeout config: connect=${CONNECT_TIMEOUT}s, max=${MAX_TIME}s, retries=${RETRY_COUNT}"
+echo ""
 
 echo "📍 Testing Main Site"
 echo "===================="
@@ -67,27 +115,35 @@ echo ""
 
 echo "🔧 Testing DNS Resolution"
 echo "=========================="
-echo -n "Resolving $MAIN_DOMAIN... "
-if dig +short "$MAIN_DOMAIN" > /dev/null 2>&1; then
-    echo -e "${GREEN}✓ OK${NC}"
-else
-    echo -e "${RED}✗ FAILED${NC}"
-fi
-
-echo -n "Resolving $PROXY_DOMAIN... "
-if dig +short "$PROXY_DOMAIN" > /dev/null 2>&1; then
-    echo -e "${GREEN}✓ OK${NC}"
-else
-    echo -e "${RED}✗ FAILED${NC}"
-fi
+check_dns "$MAIN_DOMAIN"
+check_dns "$PROXY_DOMAIN"
 echo ""
+
+end_ts="$(date +%s)"
+duration="$((end_ts - start_ts))"
+
+PASSED_CHECKS="$((TOTAL_CHECKS - FAILED_CHECKS))"
 
 echo "📋 Deployment Summary"
 echo "====================="
-echo -e "${YELLOW}Note:${NC} This script only verifies that URLs are accessible."
+echo "Checks passed: $PASSED_CHECKS/$TOTAL_CHECKS"
+echo "Duration: ${duration}s"
+
+if [ "$FAILED_CHECKS" -gt 0 ]; then
+    echo -e "${RED}Result: FAILED (${FAILED_CHECKS} checks failed)${NC}"
+else
+    echo -e "${GREEN}Result: PASSED${NC}"
+fi
+
+echo ""
+echo -e "${YELLOW}Note:${NC} This script verifies availability and key responses only."
 echo "For full CMS functionality, ensure:"
 echo "  1. GitHub OAuth app is configured"
 echo "  2. Worker secrets (GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET) are set"
 echo "  3. Custom domains are properly configured in Cloudflare"
 echo ""
 echo "For detailed deployment instructions, see DEPLOYMENT-QUICKSTART.md"
+
+if [ "$FAILED_CHECKS" -gt 0 ]; then
+    exit 1
+fi

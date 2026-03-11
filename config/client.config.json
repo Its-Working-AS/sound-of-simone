@@ -7,7 +7,7 @@
     "branch": "main"
   },
   "domains": {
-    "production": "soundofsimone.no",
+    "production": "pending-domain.example",
     "dev": "dev.sound-of-simone-dev.pages.dev",
     "cmsProxy": "decap.soundofsimone.no"
   },
@@ -18,9 +18,9 @@
     "pagesBranchProd": "main"
   },
   "cms": {
-    "publishMode": "editorial_workflow",
-    "siteOrigin": "https://soundofsimone.no",
-    "displayOrigin": "https://soundofsimone.no",
+    "publishMode": "simple",
+    "siteOrigin": "https://dev.sound-of-simone-dev.pages.dev",
+    "displayOrigin": "https://dev.sound-of-simone-dev.pages.dev",
     "mediaFolder": "public/images",
     "publicFolder": "/images"
   },

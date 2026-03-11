@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "capturedAt": "2026-03-11T10:06:14.063Z",
+  "capturedAt": "2026-03-11T10:05:13.330Z",
   "client": {
     "id": "sound-of-simone",
     "brandName": "Sound of Simone",
@@ -14,7 +14,7 @@
   "technical": {
     "repoOwner": "allisson79",
     "repoName": "sound-of-simone-site",
-    "productionDomain": "soundofsimone.no",
+    "productionDomain": "pending-domain.example",
     "devDomain": "dev.sound-of-simone-dev.pages.dev",
     "cmsProxyDomain": "decap.soundofsimone.no",
     "languageMode": "single",

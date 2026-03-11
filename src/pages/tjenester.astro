@@ -1,24 +1,50 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Section from '../components/Section.astro';
-import Card from '../components/SimpleCard.astro';
-import ProofStrip from '../components/ProofStrip.astro';
+import { homepageContent } from '../config/homepage';
+import ServiceBrandLogo from '../components/ui/ServiceBrandLogo.astro';
+
+const serviceContent = homepageContent.services;
 ---
 
-<Layout title="Tjenester | Sound of Simone">
+<Layout title="Tjenester">
   <main class="home-page" id="top">
-    <Section
-      id="tjenester"
-      title="Tjenester"
-      subtitle="Klinisk oppfolging med tydelig vurdering, konkret plan og trygg gjennomforing."
-    >
-      <div class="grid-3">
-        <Card title="Underlivsplager" text="Systematisk kartlegging og fysioterapeutisk behandling tilpasset ditt behov." />
-        <Card title="Vaginisme" text="Trinnvis behandlingslop med fokus pa trygghet, funksjon og mestring." />
-        <Card title="Foredrag og fagformidling" text="Faglige foredrag om kvinnehelse for klinikker, seminarer og fagmiljoer." />
-      </div>
-    </Section>
+    <section class="services-showcase" id="tjenester" aria-label="Tjenester">
+      <div class="container services-showcase__stack">
+        <article class="services-showcase__card" id="sound-of-physio">
+          <ServiceBrandLogo variant="physio" class="services-showcase__brand" />
+          <p class="services-showcase__lead">{serviceContent.physio.lead}</p>
 
-    <ProofStrip />
+          <div class="services-topics" aria-label="Temaer i Sound of Physio">
+            {serviceContent.physio.moreTopics.map((topic) => (
+              <details class="services-topic">
+                <summary>{topic}</summary>
+              </details>
+            ))}
+          </div>
+        </article>
+
+        <article class="services-showcase__card" id="sound-of-women">
+          <ServiceBrandLogo variant="women" class="services-showcase__brand" />
+          <p class="services-showcase__lead">{serviceContent.women.lead}</p>
+
+          <div class="services-women-grid">
+            {serviceContent.women.blocks.map((block) => (
+              <article class="services-women-card">
+                <h3>{block.title}</h3>
+                <p>{block.body}</p>
+                <a href={block.ctaHref} class="hero-btn hero-btn--primary">{block.ctaLabel}</a>
+                {block.ctaPending && <p class="services-link-note">Lenke kommer</p>}
+              </article>
+            ))}
+          </div>
+        </article>
+
+        <article class="services-showcase__card services-showcase__card--waves" id="sound-of-waves">
+          <ServiceBrandLogo variant="waves" class="services-showcase__brand" />
+          <p class="services-showcase__lead">{serviceContent.waves.lead}</p>
+          <p class="services-launch-pill">{serviceContent.waves.launchLabel}</p>
+        </article>
+      </div>
+    </section>
   </main>
 </Layout>

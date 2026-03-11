@@ -1,6 +1,7 @@
 ---
 import { BOOKING_URL, BRAND_COLOR, DEV_MODE } from '../config/site';
 import { homepageContent } from '../config/homepage';
+import { siteSettings } from '../config/site-settings';
 import Logo from './ui/Logo.astro';
 ---
 
@@ -23,7 +24,7 @@ import Logo from './ui/Logo.astro';
     <div class="hero-content" data-reveal style="--reveal-delay: 90ms;">
       {DEV_MODE && <p class="hero-preview" data-reveal style="--reveal-delay: 20ms;">Forhandsvisning</p>}
       <div class="hero-brand-mark" data-reveal style="--reveal-delay: 120ms;" aria-hidden="true">
-        <Logo size="base" color="#411e25" ariaLabel="Sound of Simone" />
+        <Logo size="base" color={BRAND_COLOR} ariaLabel={siteSettings.brand.logoAriaLabel} />
       </div>
       <h1 id="hero-title" data-reveal style="--reveal-delay: 170ms;">
         {homepageContent.hero.title}

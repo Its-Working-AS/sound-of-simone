@@ -73,13 +73,13 @@ import Container from '@/components/ui/Container.astro';
 ```
 
 ### Logo
-The Sound of Simone wordmark logo with distinctive parallel vertical lines.
+Wordmark logo with distinctive parallel vertical lines.
 
 **Props:**
 - `size`: 'sm' | 'base' | 'lg' | 'xl' (default: 'base')
 - `color`: CSS color value (default: '#411e25' - brand burgundy)
 - `class`: Additional CSS classes
-- `ariaLabel`: Accessibility label (default: 'Sound of Simone')
+- `ariaLabel`: Accessibility label (default: 'Brand logo')
 
 **Usage:**
 ```astro

@@ -1,7 +1,7 @@
 backend:
   name: github
-  repo: allisson79/sound-of-simone-site
-  branch: main
+  repo: allisson79/sound-of-simone
+  branch: dev
   base_url: https://decap.soundofsimone.no
   auth_endpoint: /auth
 

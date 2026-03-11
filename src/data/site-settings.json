@@ -1,20 +1,20 @@
 {
   "brand": {
-    "name": "Sound of Simone",
+    "name": "Kunde Utkast",
     "tagline": "Design- og innholdssystem for raske leveranser",
-    "logoAriaLabel": "Sound of Simone",
+    "logoAriaLabel": "Kunde Utkast",
     "homeLinkAriaLabel": "Ga til forsiden"
   },
   "seo": {
-    "defaultTitle": "Sound of Simone - Design- og innholdssystem for raske leveranser",
-    "titleSuffix": "Sound of Simone",
+    "defaultTitle": "Kunde Utkast - Design- og innholdssystem for raske leveranser",
+    "titleSuffix": "Kunde Utkast",
     "description": "Bruk denne templaten til rask lansering med god struktur for innhold, design og konvertering."
   },
   "localization": {
     "mode": "single",
-    "defaultLocale": "no",
+    "defaultLocale": "nb",
     "locales": [
-      "no"
+      "nb"
     ]
   },
   "theme": {
@@ -78,9 +78,9 @@
     ]
   },
   "contact": {
-    "email": "kontakt@sound-of-simone.no",
-    "phoneDisplay": "99 99 99 99",
-    "phoneLink": "99999999",
+    "email": "kontakt@kunde-utkast.no",
+    "phoneDisplay": "99 88 77 66",
+    "phoneLink": "99887766",
     "address": ""
   },
   "booking": {
